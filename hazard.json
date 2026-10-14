@@ -1,0 +1,50 @@
+{
+  "format": "avsim-studio/1",
+  "params": {
+    "cutT0": 5.0,
+    "cutDur": 2.4,
+    "cutV": 15.0,
+    "pedT0": 9.6,
+    "pedV": 1.45,
+    "busGo": 17.5,
+    "cutDs": -4.0,
+    "tgT": 0.9,
+    "mu": 0.8,
+    "cutGap": 12.0,
+    "cutBrake": 0.0,
+    "pedGap": 4.5,
+    "pedLook": 1,
+    "civil": true
+  },
+  "policy": {
+    "v0": 12.5,
+    "T": 1.6,
+    "a": 1.4,
+    "b": 2.0,
+    "s0": 2.5,
+    "cautionV": 7.5,
+    "cautionRange": 55.0,
+    "pedBuffer": 2.5,
+    "cutinLat": 2.15
+  },
+  "hazards": [
+    {
+      "type": "bike",
+      "lane": "E2",
+      "x": 10.0,
+      "d": 0.0,
+      "v": 4.0,
+      "swerve": 3.4,
+      "swDur": 2.5,
+      "t0": 0.0,
+      "trig": 16.0
+    }
+  ],
+  "space": {
+    "h0_x": [-5.0, 25.0],
+    "h0_swerve": [2.8, 3.6],
+    "h0_trig": [12.0, 20.0]
+  },
+  "exposure": 0.04,
+  "why": "Tình huống xe đạp di chuyển ở làn E2 (làn ngoài) bất ngờ lạng sang trái 2.8 - 3.6 m để tránh chướng ngại vật (ổ gà, cửa xe đỗ mở, hoặc vũng nước trên mép đường) và lấn trực tiếp vào làn E1 của xe ta tại đoạn đường trước ngã tư (x trong khoảng [-5, 25] m). Thời gian lạng là 2.5 s, gia tốc ngang đỉnh pi^2 * swerve / (2 * 2.5^2) <= 2.84 m/s^2 < 3.0 m/s^2 (giới hạn vật lý lạng xe đạp an toàn). Trig kích hoạt trong khoảng [12, 20] m ứng với việc người đi xe đạp chỉ phản ứng tránh vật cản khi xe ta đã tiến sát (khoảng 1.0 - 1.6 s trước khi chạm mặt). Exposure = 0.04 ứng với tần suất trung bình 1 lần mỗi 25 chuyến đi trong khu vực đô thị hỗn hợp có làn xe đạp liền kề làn ô tô."
+}

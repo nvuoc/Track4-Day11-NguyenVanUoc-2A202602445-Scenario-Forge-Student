@@ -16,4 +16,18 @@ def label_mode(R: core.Rollout, k: int, event: dict, contact_type) -> str:
       'other'      - anything else
     Check in that order. Positions and speeds at contact: R.F[k, event["f"], core.IX["C2"]] (x is column 0, v is 4).
     """
-    raise NotImplementedError("TODO 8: label_mode")
+    other = event["b"] if event["a"] == "ego" else event["a"]
+    if other == "P1" or event.get("kind") == "block":
+        return "crosswalk_block"
+    if contact_type(R, k, event) == "rear":
+        return "rear_ended"
+    if other == "C2":
+        f = event["f"]
+        c2 = R.F[k, f, core.IX["C2"]]
+        x_c2 = c2[0]
+        v_c2 = c2[4]
+        if x_c2 < 112.0 and v_c2 < 6.0:
+            return "bus_bypass"
+        else:
+            return "cut_in"
+    return "other"
